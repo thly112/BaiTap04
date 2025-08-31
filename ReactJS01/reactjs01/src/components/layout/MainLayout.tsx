@@ -16,8 +16,17 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
 
   return (
     <Layout style={{ minHeight: '100vh', width: '100vw' }}>
-      <Header style={{ width: '100vw' }}>
-        <Menu theme="dark" mode="horizontal" selectable={false}>
+      <Header style={{
+          position: 'fixed',
+          width: '100%',
+          zIndex: 1,
+          backgroundColor: '#f6bedfff', // màu nền header
+        }}>
+        <Menu
+          mode="horizontal"
+          selectable={false}
+          style={{ backgroundColor: 'transparent', color: '#fff' }} // menu chữ trắng
+        >
           <Menu.Item key="home"><Link to="/">Home</Link></Menu.Item>
           {!user && <Menu.Item key="login"><Link to="/login">Login</Link></Menu.Item>}
           {!user && <Menu.Item key="register"><Link to="/register">Register</Link></Menu.Item>}
@@ -33,7 +42,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
           alignItems: 'center',
           width: '100vw',
           height: 'calc(100vh - 64px)', // trừ header
-          backgroundColor: '#dad3d3ff', // hoặc màu bạn muốn
+          backgroundColor: '#f6bedf41', // hoặc màu bạn muốn
         }}
       >
         {children}
